@@ -1,6 +1,6 @@
 import * as SQLite from 'expo-sqlite';
 
-import seed from './seed/content-seed.json';
+import { pictureSeed, readingSeed, writingSeed } from './seed';
 
 const DATABASE_NAME = 'linie-b1.db';
 const SCHEMA_VERSION = 1;
@@ -72,7 +72,7 @@ async function seedIfEmpty(db: SQLite.SQLiteDatabase): Promise<void> {
   if ((existing?.n ?? 0) > 0) return;
 
   await db.withTransactionAsync(async () => {
-    for (const task of seed.reading) {
+    for (const task of readingSeed) {
       await db.runAsync(
         'INSERT OR REPLACE INTO reading_task (id, station, variant, title, text, questions) VALUES (?, ?, ?, ?, ?, ?)',
         task.id,
@@ -83,7 +83,7 @@ async function seedIfEmpty(db: SQLite.SQLiteDatabase): Promise<void> {
         JSON.stringify(task.questions)
       );
     }
-    for (const task of seed.writing) {
+    for (const task of writingSeed) {
       await db.runAsync(
         'INSERT OR REPLACE INTO writing_task (id, station, variant, prompt, emailType, minWords, modelAnswer) VALUES (?, ?, ?, ?, ?, ?, ?)',
         task.id,
@@ -93,6 +93,17 @@ async function seedIfEmpty(db: SQLite.SQLiteDatabase): Promise<void> {
         task.emailType,
         task.minWords,
         task.modelAnswer
+      );
+    }
+    for (const task of pictureSeed) {
+      await db.runAsync(
+        'INSERT OR REPLACE INTO picture_task (id, station, variant, imageRef, description, attribution) VALUES (?, ?, ?, ?, ?, ?)',
+        task.id,
+        task.station,
+        task.variant,
+        task.imageRef,
+        task.description,
+        task.attribution ?? null
       );
     }
   });

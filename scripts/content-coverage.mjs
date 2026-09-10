@@ -4,14 +4,19 @@
  *
  * Run with: npm run check:content
  */
-import { readFileSync } from 'node:fs';
+import { readFileSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const read = (...p) => JSON.parse(readFileSync(join(here, '..', ...p), 'utf8'));
 
-const seed = read('src', 'modules', 'content', '3-data', 'repository', 'seed', 'content-seed.json');
+const seedDir = join(here, '..', 'src', 'modules', 'content', '3-data', 'repository', 'seed', 'stations');
+const seed = { reading: [], writing: [], picture: [] };
+for (const file of readdirSync(seedDir).filter((f) => f.endsWith('.json'))) {
+  const kind = file.replace(/^\d+-/, '').replace(/\.json$/, '');
+  if (seed[kind]) seed[kind].push(...JSON.parse(readFileSync(join(seedDir, file), 'utf8')));
+}
 const { stations } = read('src', 'modules', 'curriculum', '3-data', 'repository', 'curriculum.json');
 
 const VARIANTS = 10;

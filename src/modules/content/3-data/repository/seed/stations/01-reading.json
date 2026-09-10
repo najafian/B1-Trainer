@@ -1,0 +1,392 @@
+[
+  {
+    "id": "r-001-00",
+    "station": 1,
+    "variant": 0,
+    "title": "Ein neuer Nachbar stellt sich vor",
+    "text": "Guten Tag, mein Name ist Tomas Varga. Ich bin vor zwei Wochen aus Bratislava nach Wien gezogen und wohne jetzt im zweiten Stock. Ich bin 34 Jahre alt und arbeite als Krankenpfleger im Krankenhaus in der Nähe. Meine Frau heißt Elena, sie ist Lehrerin und sucht im Moment noch eine Stelle. Wir haben eine kleine Tochter, sie ist drei Jahre alt und geht seit Montag in den Kindergarten um die Ecke. In meiner Freizeit koche ich gern und ich spiele Fußball. Am Wochenende gehen wir oft in den Park, weil unsere Tochter dort spielen kann. Wir sprechen noch nicht perfekt Deutsch, aber wir lernen jeden Tag. Wenn Sie Fragen haben oder Hilfe brauchen, klopfen Sie einfach an unsere Tür.",
+    "questions": [
+      {
+        "prompt": "Warum ist Tomas nach Wien gekommen?",
+        "options": [
+          "Der Text sagt es nicht genau.",
+          "Weil seine Frau hier eine Stelle hat.",
+          "Weil seine Tochter hier in den Kindergarten geht."
+        ],
+        "correctIndex": 0,
+        "explanation": "Der Text nennt den Umzug und den Beruf, aber keinen Grund für den Umzug."
+      },
+      {
+        "prompt": "Was macht Elena im Moment?",
+        "options": [
+          "Sie arbeitet als Lehrerin.",
+          "Sie sucht eine Arbeitsstelle.",
+          "Sie bleibt zu Hause bei der Tochter."
+        ],
+        "correctIndex": 1,
+        "explanation": "Sie ist Lehrerin und sucht im Moment noch eine Stelle."
+      },
+      {
+        "prompt": "Was macht Tomas gern in seiner Freizeit?",
+        "options": [
+          "Er liest und geht ins Kino.",
+          "Er kocht und spielt Fußball.",
+          "Er lernt jeden Tag Deutsch."
+        ],
+        "correctIndex": 1,
+        "explanation": "In meiner Freizeit koche ich gern und ich spiele Fußball."
+      }
+    ]
+  },
+  {
+    "id": "r-001-01",
+    "station": 1,
+    "variant": 1,
+    "title": "Vorstellung im Deutschkurs",
+    "text": "Hallo zusammen, ich heiße Amina Sow und komme aus dem Senegal. Ich bin seit einem Jahr in Österreich. Zuerst habe ich in Graz gewohnt, aber seit April lebe ich in Wien, weil ich hier eine Ausbildung machen möchte. In meiner Heimat habe ich Betriebswirtschaft studiert und drei Jahre in einer Bank gearbeitet. Leider wird mein Abschluss in Österreich nicht anerkannt, deshalb muss ich noch Prüfungen machen. Das ist manchmal frustrierend, aber ich gebe nicht auf. Deutsch finde ich schwer, besonders die Artikel und die Wortstellung im Nebensatz. Sprechen macht mir dagegen Spaß. Ich habe schon einige Freunde gefunden, die auch Deutsch lernen. Wir treffen uns jeden Donnerstag in einem Café und sprechen nur Deutsch, auch wenn wir viele Fehler machen.",
+    "questions": [
+      {
+        "prompt": "Warum ist Amina von Graz nach Wien gezogen?",
+        "options": [
+          "Weil sie in Wien Freunde hat.",
+          "Weil sie hier eine Ausbildung machen will.",
+          "Weil sie in Wien eine Stelle in einer Bank hat."
+        ],
+        "correctIndex": 1,
+        "explanation": "seit April lebe ich in Wien, weil ich hier eine Ausbildung machen möchte."
+      },
+      {
+        "prompt": "Welches Problem hat Amina mit ihrem Studium?",
+        "options": [
+          "Sie hat das Studium nicht beendet.",
+          "Ihr Abschluss wird in Österreich nicht anerkannt.",
+          "Sie möchte etwas anderes studieren."
+        ],
+        "correctIndex": 1,
+        "explanation": "Leider wird mein Abschluss in Österreich nicht anerkannt."
+      },
+      {
+        "prompt": "Was fällt Amina beim Deutschlernen leicht?",
+        "options": [
+          "Das Sprechen.",
+          "Die Artikel.",
+          "Die Wortstellung im Nebensatz."
+        ],
+        "correctIndex": 0,
+        "explanation": "Sprechen macht mir dagegen Spaß."
+      }
+    ]
+  },
+  {
+    "id": "r-001-02",
+    "station": 1,
+    "variant": 2,
+    "title": "Der neue Kollege",
+    "text": "Liebe Kolleginnen und Kollegen, mein Name ist Marek Nowak und ich arbeite ab Montag im Team von Frau Huber. Ich bin gelernter Tischler und habe zwölf Jahre in einer Möbelfirma in Krakau gearbeitet. Zuletzt war ich dort Teamleiter für sechs Mitarbeiter. Nach Wien bin ich gekommen, weil meine Partnerin hier an der Universität arbeitet. Am Anfang war alles neu für mich: die Sprache, die Behörden, sogar das Frühstück. Inzwischen fühle ich mich aber wohl. Ich wohne im 15. Bezirk und fahre mit der U6 zur Arbeit, das dauert etwa zwanzig Minuten. Ich freue mich sehr auf die Zusammenarbeit. Bitte sprechen Sie langsam mit mir, dann verstehe ich fast alles. Wenn ich etwas nicht verstehe, frage ich lieber noch einmal nach, als einen Fehler zu machen.",
+    "questions": [
+      {
+        "prompt": "Was war Marek zuletzt in Krakau?",
+        "options": [
+          "Tischler ohne Ausbildung.",
+          "Teamleiter von sechs Mitarbeitern.",
+          "Mitarbeiter an der Universität."
+        ],
+        "correctIndex": 1,
+        "explanation": "Zuletzt war ich dort Teamleiter für sechs Mitarbeiter."
+      },
+      {
+        "prompt": "Warum ist Marek nach Wien gezogen?",
+        "options": [
+          "Wegen der Arbeit seiner Partnerin.",
+          "Wegen einer besseren Stelle als Tischler.",
+          "Weil ihm Wien besser gefällt als Krakau."
+        ],
+        "correctIndex": 0,
+        "explanation": "weil meine Partnerin hier an der Universität arbeitet."
+      },
+      {
+        "prompt": "Was macht Marek, wenn er etwas nicht versteht?",
+        "options": [
+          "Er sagt nichts und arbeitet weiter.",
+          "Er fragt lieber noch einmal nach.",
+          "Er bittet um eine schriftliche Erklärung."
+        ],
+        "correctIndex": 1,
+        "explanation": "frage ich lieber noch einmal nach, als einen Fehler zu machen."
+      }
+    ]
+  },
+  {
+    "id": "r-001-03",
+    "station": 1,
+    "variant": 3,
+    "title": "Ein Anruf beim Sportverein",
+    "text": "Guten Abend, mein Name ist Fatima Kaya. Ich rufe an, weil ich Informationen über Ihren Volleyballverein möchte. Ich bin 27 Jahre alt und habe in der Türkei acht Jahre lang Volleyball gespielt, zuletzt in einer Amateurliga. Seit drei Monaten wohne ich in Wien und suche jetzt einen Verein, wo ich wieder regelmäßig trainieren kann. Ich arbeite als Zahnarztassistentin und habe montags und mittwochs ab 17 Uhr Zeit, am Wochenende meistens auch. Meine Deutschkenntnisse sind noch nicht perfekt, aber ich verstehe im Training sicher genug. Können Sie mir sagen, ob Sie noch Plätze frei haben und was der Mitgliedsbeitrag pro Jahr kostet? Und gibt es die Möglichkeit, zuerst einmal zum Probetraining zu kommen? Über eine Antwort würde ich mich sehr freuen.",
+    "questions": [
+      {
+        "prompt": "Warum ruft Fatima an?",
+        "options": [
+          "Sie möchte einen Volleyballverein finden.",
+          "Sie möchte einen Deutschkurs anmelden.",
+          "Sie sucht eine neue Arbeitsstelle."
+        ],
+        "correctIndex": 0,
+        "explanation": "Ich rufe an, weil ich Informationen über Ihren Volleyballverein möchte."
+      },
+      {
+        "prompt": "Wann hat Fatima unter der Woche Zeit?",
+        "options": [
+          "Jeden Abend ab 17 Uhr.",
+          "Montags und mittwochs ab 17 Uhr.",
+          "Nur am Wochenende."
+        ],
+        "correctIndex": 1,
+        "explanation": "habe montags und mittwochs ab 17 Uhr Zeit."
+      },
+      {
+        "prompt": "Was möchte Fatima außer dem Preis noch wissen?",
+        "options": [
+          "Wo die Halle liegt.",
+          "Ob es ein Probetraining gibt.",
+          "Wer der Trainer ist."
+        ],
+        "correctIndex": 1,
+        "explanation": "gibt es die Möglichkeit, zuerst einmal zum Probetraining zu kommen?"
+      }
+    ]
+  },
+  {
+    "id": "r-001-04",
+    "station": 1,
+    "variant": 4,
+    "title": "Steckbrief für die Kurszeitung",
+    "text": "Name: Viktor Petrenko. Alter: 41. Geboren in Charkiw, seit 2022 in Wien. Beruf: Softwareentwickler, im Moment arbeitslos. Familie: verheiratet, zwei Söhne (9 und 14). Sprachen: Ukrainisch, Russisch, Englisch, ein bisschen Deutsch. Warum ich Deutsch lerne: Ich möchte in Österreich als Entwickler arbeiten. In vielen Firmen kann man auf Englisch arbeiten, aber im Team spricht man Deutsch, und ich möchte dazugehören und nicht nur zuhören. Was mir schwerfällt: Ich verstehe viel mehr, als ich sagen kann. Wenn ich schnell antworten muss, vergesse ich alle Wörter. Was mir hilft: Ich höre jeden Morgen beim Frühstück österreichisches Radio, auch wenn ich nur die Hälfte verstehe. Mein Ziel bis Dezember: die B1-Prüfung schaffen und ein Bewerbungsgespräch auf Deutsch führen.",
+    "questions": [
+      {
+        "prompt": "Was ist Viktors berufliche Situation?",
+        "options": [
+          "Er arbeitet als Entwickler in Wien.",
+          "Er ist Entwickler, hat aber gerade keine Arbeit.",
+          "Er macht eine Ausbildung zum Entwickler."
+        ],
+        "correctIndex": 1,
+        "explanation": "Beruf: Softwareentwickler, im Moment arbeitslos."
+      },
+      {
+        "prompt": "Warum reicht Viktor Englisch nicht?",
+        "options": [
+          "Weil in den Firmen kein Englisch gesprochen wird.",
+          "Weil er im Team dazugehören möchte.",
+          "Weil sein Englisch zu schlecht ist."
+        ],
+        "correctIndex": 1,
+        "explanation": "im Team spricht man Deutsch, und ich möchte dazugehören."
+      },
+      {
+        "prompt": "Was ist Viktors größtes Problem beim Sprechen?",
+        "options": [
+          "Er versteht die anderen nicht.",
+          "Unter Zeitdruck fallen ihm die Wörter nicht ein.",
+          "Er kennt zu wenige Wörter."
+        ],
+        "correctIndex": 1,
+        "explanation": "Wenn ich schnell antworten muss, vergesse ich alle Wörter."
+      }
+    ]
+  },
+  {
+    "id": "r-001-05",
+    "station": 1,
+    "variant": 5,
+    "title": "Im Wartezimmer",
+    "text": "Entschuldigung, ist der Platz hier noch frei? Danke. Ich bin übrigens Ana, ich wohne seit Kurzem in diesem Haus, ganz oben unter dem Dach. Sie haben doch den kleinen Hund, oder? Ich habe Sie schon einmal im Stiegenhaus gesehen. Ich komme aus Rumänien, aus einer kleinen Stadt in der Nähe von Cluj. In Wien bin ich seit fünf Jahren. Am Anfang habe ich als Reinigungskraft gearbeitet, das war hart, aber ich habe nebenbei einen Kurs gemacht und arbeite jetzt in einem Pflegeheim. Die Arbeit ist auch anstrengend, aber sie gefällt mir viel besser, weil ich mit Menschen zu tun habe. Meine Mutter lebt noch in Rumänien. Ich telefoniere jeden Sonntag mit ihr, und zweimal im Jahr fahre ich hin.",
+    "questions": [
+      {
+        "prompt": "Wo findet das Gespräch statt?",
+        "options": [
+          "Im Stiegenhaus.",
+          "In einem Wartezimmer.",
+          "In einem Pflegeheim."
+        ],
+        "correctIndex": 1,
+        "explanation": "Der Titel und die Frage nach dem freien Platz zeigen: im Wartezimmer."
+      },
+      {
+        "prompt": "Wie hat sich Anas berufliche Situation verändert?",
+        "options": [
+          "Von Reinigungskraft zur Arbeit im Pflegeheim.",
+          "Vom Pflegeheim zur Reinigungsfirma.",
+          "Sie arbeitet immer noch als Reinigungskraft."
+        ],
+        "correctIndex": 0,
+        "explanation": "Am Anfang Reinigungskraft, jetzt im Pflegeheim."
+      },
+      {
+        "prompt": "Warum gefällt Ana ihre neue Arbeit besser?",
+        "options": [
+          "Weil sie leichter ist.",
+          "Weil sie besser bezahlt wird.",
+          "Weil sie mit Menschen zu tun hat."
+        ],
+        "correctIndex": 2,
+        "explanation": "sie gefällt mir viel besser, weil ich mit Menschen zu tun habe."
+      }
+    ]
+  },
+  {
+    "id": "r-001-06",
+    "station": 1,
+    "variant": 6,
+    "title": "Nachricht in der Elterngruppe",
+    "text": "Liebe Eltern, ich möchte mich kurz vorstellen, weil mein Sohn Yusuf seit dieser Woche in der Klasse 3b ist. Ich heiße Leyla Demir und wir sind im August von Salzburg nach Wien gezogen. Mein Mann hat hier eine Stelle bekommen, deshalb der Umzug mitten im Schuljahr. Für Yusuf ist das nicht einfach, er vermisst seine alten Freunde sehr. Wenn also jemand Lust hat, sich am Nachmittag im Park zu treffen, wären wir sehr froh. Ich arbeite Teilzeit als Apothekerin, dienstags und donnerstags bin ich zu Hause. Ich kann an diesen Tagen auch gern andere Kinder mitnehmen oder beim Lernen helfen. Wenn es einen Elternabend gibt, komme ich auf jeden Fall. Bitte schreibt mir einfach hier in der Gruppe.",
+    "questions": [
+      {
+        "prompt": "Warum ist die Familie nach Wien gezogen?",
+        "options": [
+          "Wegen der Schule des Sohnes.",
+          "Wegen der Arbeit des Mannes.",
+          "Wegen der Arbeit von Leyla."
+        ],
+        "correctIndex": 1,
+        "explanation": "Mein Mann hat hier eine Stelle bekommen, deshalb der Umzug."
+      },
+      {
+        "prompt": "Was ist für Yusuf das Problem?",
+        "options": [
+          "Er versteht den Unterricht nicht.",
+          "Er vermisst seine alten Freunde.",
+          "Er möchte nicht zur Schule gehen."
+        ],
+        "correctIndex": 1,
+        "explanation": "er vermisst seine alten Freunde sehr."
+      },
+      {
+        "prompt": "Was bietet Leyla den anderen Eltern an?",
+        "options": [
+          "Sie kann dienstags und donnerstags Kinder mitnehmen.",
+          "Sie kann jeden Nachmittag helfen.",
+          "Sie kann den Elternabend organisieren."
+        ],
+        "correctIndex": 0,
+        "explanation": "dienstags und donnerstags bin ich zu Hause. Ich kann an diesen Tagen auch gern andere Kinder mitnehmen."
+      }
+    ]
+  },
+  {
+    "id": "r-001-07",
+    "station": 1,
+    "variant": 7,
+    "title": "Beim ersten Termin",
+    "text": "Bitte nehmen Sie Platz. Bevor wir anfangen, möchte ich Sie kurz um ein paar Angaben bitten. Ihr Name ist Herr Bushati, richtig? Und Sie sind 1989 geboren. Sie leben seit sechs Jahren in Österreich, davon fünf Jahre in Wien. Sie haben eine Tochter, acht Jahre alt. Beruflich waren Sie zuletzt im Lager tätig, möchten aber gern etwas anderes machen. Ihre Deutschkenntnisse liegen nach Ihrer eigenen Einschätzung bei A2 bis B1. Sie möchten die B1-Prüfung machen, weil Sie die Staatsbürgerschaft beantragen wollen. Habe ich das so richtig notiert? Gut. Dann erkläre ich Ihnen jetzt, welche Unterlagen Sie brauchen und bis wann Sie sich anmelden müssen. Haben Sie Ihren Aufenthaltstitel und den Meldezettel mitgebracht?",
+    "questions": [
+      {
+        "prompt": "Wie lange lebt Herr Bushati schon in Wien?",
+        "options": [
+          "Sechs Jahre.",
+          "Fünf Jahre.",
+          "Acht Jahre."
+        ],
+        "correctIndex": 1,
+        "explanation": "seit sechs Jahren in Österreich, davon fünf Jahre in Wien."
+      },
+      {
+        "prompt": "Warum möchte er die B1-Prüfung machen?",
+        "options": [
+          "Wegen einer neuen Arbeitsstelle.",
+          "Wegen der Staatsbürgerschaft.",
+          "Wegen der Schule seiner Tochter."
+        ],
+        "correctIndex": 1,
+        "explanation": "weil Sie die Staatsbürgerschaft beantragen wollen."
+      },
+      {
+        "prompt": "Was passiert als Nächstes im Gespräch?",
+        "options": [
+          "Er macht einen Einstufungstest.",
+          "Er bekommt Informationen zu Unterlagen und Anmeldung.",
+          "Er bezahlt die Kursgebühr."
+        ],
+        "correctIndex": 1,
+        "explanation": "Dann erkläre ich Ihnen jetzt, welche Unterlagen Sie brauchen."
+      }
+    ]
+  },
+  {
+    "id": "r-001-08",
+    "station": 1,
+    "variant": 8,
+    "title": "Zwei Vorstellungen im Vergleich",
+    "text": "Text A: Ich bin der Ali. Bin 22, komme aus Afghanistan, bin seit vier Jahren da. Mache gerade eine Lehre als Koch, zweites Lehrjahr. Ist anstrengend, Berufsschule und Arbeit gleichzeitig, aber passt schon. Am Wochenende spiele ich Cricket mit Freunden im Prater. Text B: Mein Name ist Herr Ali Rahimi. Ich bin 22 Jahre alt und stamme ursprünglich aus Afghanistan. Seit vier Jahren lebe ich in Österreich. Derzeit absolviere ich eine Lehre als Koch und befinde mich im zweiten Lehrjahr. Die Doppelbelastung von Berufsschule und Betrieb ist durchaus fordernd, ich komme damit jedoch gut zurecht. In meiner Freizeit spiele ich regelmäßig Cricket. Beide Texte enthalten dieselben Informationen, aber sie klingen sehr unterschiedlich.",
+    "questions": [
+      {
+        "prompt": "Worin unterscheiden sich die beiden Texte?",
+        "options": [
+          "Im Inhalt.",
+          "Im Register, also formell und informell.",
+          "In der Länge der Ausbildung."
+        ],
+        "correctIndex": 1,
+        "explanation": "Beide Texte enthalten dieselben Informationen, aber sie klingen sehr unterschiedlich."
+      },
+      {
+        "prompt": "Welcher Text passt besser in eine Bewerbung?",
+        "options": [
+          "Text A.",
+          "Text B.",
+          "Beide gleich gut."
+        ],
+        "correctIndex": 1,
+        "explanation": "Text B ist formell: stamme ursprünglich, derzeit absolviere ich."
+      },
+      {
+        "prompt": "In welchem Lehrjahr ist Ali?",
+        "options": [
+          "Im ersten.",
+          "Im zweiten.",
+          "Im vierten."
+        ],
+        "correctIndex": 1,
+        "explanation": "befinde mich im zweiten Lehrjahr."
+      }
+    ]
+  },
+  {
+    "id": "r-001-09",
+    "station": 1,
+    "variant": 9,
+    "title": "Aushang im Gemeindebau",
+    "text": "Liebe Hausgemeinschaft, wir sind Familie Osei und seit Anfang September in Wohnung 14. Wir möchten uns auf diesem Weg vorstellen, weil wir bisher kaum jemanden persönlich getroffen haben. Wir kommen aus Ghana, mein Mann arbeitet als Busfahrer bei den Wiener Linien, ich bin Krankenschwester im Nachtdienst. Unsere Kinder sind sechs und elf Jahre alt. Weil ich nachts arbeite, schlafe ich manchmal am Vormittag. Falls es also einmal zu laut ist und ich klopfe, ist das bitte nicht böse gemeint. Umgekehrt sagen Sie uns bitte Bescheid, wenn unsere Kinder zu laut sind. Wir möchten gute Nachbarn sein. Am Samstag, dem 12., machen wir ab 15 Uhr im Hof einen kleinen Kuchenstand. Kommen Sie gern vorbei.",
+    "questions": [
+      {
+        "prompt": "Warum schreibt Familie Osei den Aushang?",
+        "options": [
+          "Weil sie sich über Lärm beschweren will.",
+          "Weil sie bisher kaum jemanden getroffen hat.",
+          "Weil sie eine neue Wohnung sucht."
+        ],
+        "correctIndex": 1,
+        "explanation": "weil wir bisher kaum jemanden persönlich getroffen haben."
+      },
+      {
+        "prompt": "Warum bittet Frau Osei um Rücksicht am Vormittag?",
+        "options": [
+          "Weil die Kinder schlafen.",
+          "Weil sie nach dem Nachtdienst schläft.",
+          "Weil ihr Mann Schichtarbeit hat."
+        ],
+        "correctIndex": 1,
+        "explanation": "Weil ich nachts arbeite, schlafe ich manchmal am Vormittag."
+      },
+      {
+        "prompt": "Was ist am Samstag geplant?",
+        "options": [
+          "Ein Kuchenstand im Hof.",
+          "Ein Hausfest in der Wohnung.",
+          "Eine Hausversammlung."
+        ],
+        "correctIndex": 0,
+        "explanation": "machen wir ab 15 Uhr im Hof einen kleinen Kuchenstand."
+      }
+    ]
+  }
+]

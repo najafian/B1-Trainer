@@ -1,0 +1,52 @@
+[
+  {
+    "id": "w-001-00", "station": 1, "variant": 0, "emailType": "Vorstellung", "minWords": 80,
+    "prompt": "Sie sind neu in einem Deutschkurs. Die Kursleiterin, Frau Berger, hat die Teilnehmer gebeten, sich per E-Mail kurz vorzustellen. Schreiben Sie an Frau Berger: etwas über sich (Name, Herkunft, Beruf), warum Sie Deutsch lernen, und was Sie im Kurs besonders üben möchten.",
+    "modelAnswer": "Sehr geehrte Frau Berger,\n\nmein Name ist Amir Yilmaz und ich bin ein neuer Teilnehmer in Ihrem Deutschkurs am Dienstagabend. Ich komme ursprünglich aus Izmir und lebe seit etwa zwei Jahren in Wien.\n\nVon Beruf bin ich Elektrotechniker und arbeite in einer kleinen Firma im 10. Bezirk. Im Alltag verstehe ich schon recht viel, aber ich lerne Deutsch vor allem, weil ich die B1-Prüfung brauche und mich bei der Arbeit sicherer ausdrücken möchte.\n\nBesonders üben möchte ich das Schreiben, weil ich oft E-Mails an Kunden schicken muss und dabei unsicher bin. Auch das freie Sprechen fällt mir noch schwer.\n\nIch freue mich auf den Kurs.\n\nMit freundlichen Grüßen\nAmir Yilmaz"
+  },
+  {
+    "id": "w-001-01", "station": 1, "variant": 1, "emailType": "Anfrage", "minWords": 80,
+    "prompt": "Sie möchten in einem Sportverein mitmachen. Schreiben Sie eine E-Mail an den Verein: stellen Sie sich vor, erklären Sie, welche Erfahrung Sie haben, fragen Sie nach den Trainingszeiten und nach den Kosten.",
+    "modelAnswer": "Sehr geehrte Damen und Herren,\n\nüber Ihre Homepage habe ich von Ihrem Volleyballverein erfahren und möchte mich gerne bei Ihnen vorstellen.\n\nMein Name ist Fatima Kaya, ich bin 27 Jahre alt und lebe seit drei Monaten in Wien. In der Türkei habe ich acht Jahre lang Volleyball gespielt, zuletzt in einer Amateurliga. Da mir der Sport sehr fehlt, suche ich nun einen Verein, in dem ich wieder regelmäßig trainieren kann.\n\nAus diesem Grund hätte ich zwei Fragen: Wann finden die Trainings statt, und wie hoch ist der Mitgliedsbeitrag pro Jahr? Außerdem würde mich interessieren, ob ein Probetraining möglich ist.\n\nÜber eine Antwort würde ich mich sehr freuen.\n\nMit freundlichen Grüßen\nFatima Kaya"
+  },
+  {
+    "id": "w-001-02", "station": 1, "variant": 2, "emailType": "Vorstellung", "minWords": 80,
+    "prompt": "Sie beginnen eine neue Arbeitsstelle. Ihre Vorgesetzte bittet Sie, sich dem Team per E-Mail vorzustellen. Schreiben Sie: wer Sie sind, welche Erfahrung Sie mitbringen, worauf Sie sich freuen.",
+    "modelAnswer": "Liebe Kolleginnen und Kollegen,\n\nda ich ab kommendem Montag im Team von Frau Huber arbeite, möchte ich mich kurz vorstellen.\n\nMein Name ist Marek Nowak, ich bin gelernter Tischler und habe zwölf Jahre in einer Möbelfirma in Krakau gearbeitet. In den letzten drei Jahren war ich dort als Teamleiter für sechs Mitarbeiter verantwortlich. Nach Wien bin ich gezogen, weil meine Partnerin hier an der Universität arbeitet.\n\nAuf die Zusammenarbeit freue ich mich sehr, besonders auf die Arbeit an den größeren Aufträgen. Mein Deutsch ist noch nicht perfekt. Wenn Sie etwas langsamer sprechen, verstehe ich jedoch fast alles, und ich frage lieber einmal mehr nach.\n\nMit freundlichen Grüßen\nMarek Nowak"
+  },
+  {
+    "id": "w-001-03", "station": 1, "variant": 3, "emailType": "Bitte", "minWords": 80,
+    "prompt": "Sie sind neu in Ihrem Wohnhaus. Schreiben Sie eine E-Mail an die Hausverwaltung: stellen Sie sich vor, fragen Sie nach dem Müllraum und dem Waschraum, und bitten Sie um einen zweiten Schlüssel.",
+    "modelAnswer": "Sehr geehrte Damen und Herren,\n\nseit dem 1. September bin ich Mieterin der Wohnung Nummer 14 in der Brunnengasse 22. Mein Name ist Grace Osei, ich wohne dort mit meinem Mann und unseren zwei Kindern.\n\nDa wir neu im Haus sind, hätte ich einige Fragen. Könnten Sie mir bitte mitteilen, wo sich der Müllraum befindet und wie die Mülltrennung im Haus geregelt ist? Außerdem würde ich gerne wissen, ob der Waschraum reserviert werden muss.\n\nDarüber hinaus möchte ich Sie um einen zweiten Haustorschlüssel bitten, da mein Mann und ich zu unterschiedlichen Zeiten arbeiten.\n\nVielen Dank für Ihre Hilfe.\n\nMit freundlichen Grüßen\nGrace Osei"
+  },
+  {
+    "id": "w-001-04", "station": 1, "variant": 4, "emailType": "Einladung", "minWords": 80,
+    "prompt": "Sie sind vor Kurzem umgezogen und möchten Ihre Nachbarn kennenlernen. Schreiben Sie eine Einladung: stellen Sie sich vor, laden Sie zu einem kleinen Fest ein, nennen Sie Datum und Uhrzeit, und bitten Sie um eine kurze Rückmeldung.",
+    "modelAnswer": "Liebe Nachbarinnen und Nachbarn,\n\nmein Name ist Ana Popescu und ich bin vor einem Monat in die Dachwohnung im vierten Stock eingezogen. Bisher habe ich nur wenige von Ihnen kennengelernt, und das möchte ich gerne ändern.\n\nDeshalb lade ich Sie herzlich zu einem kleinen Fest im Hof ein. Es findet am Samstag, dem 12. Oktober, ab 15 Uhr statt. Für Kaffee und Kuchen sorge ich, über einen selbst gebackenen Beitrag freue ich mich natürlich auch.\n\nDamit ich ungefähr weiß, wie viele Personen kommen, wäre ich für eine kurze Rückmeldung bis Donnerstag dankbar. Sie können mir einfach einen Zettel in den Briefkasten werfen.\n\nHerzliche Grüße\nAna Popescu"
+  },
+  {
+    "id": "w-001-05", "station": 1, "variant": 5, "emailType": "Anfrage", "minWords": 80,
+    "prompt": "Sie möchten einen Deutschkurs besuchen. Schreiben Sie an eine Sprachschule: stellen Sie sich vor, beschreiben Sie Ihr Niveau, fragen Sie nach Kursen am Abend und nach dem Preis.",
+    "modelAnswer": "Sehr geehrte Damen und Herren,\n\nich interessiere mich für einen Deutschkurs an Ihrer Schule und möchte mich kurz vorstellen.\n\nMein Name ist Viktor Petrenko, ich bin 41 Jahre alt und lebe seit 2022 mit meiner Familie in Wien. Von Beruf bin ich Softwareentwickler. Einen A2-Kurs habe ich bereits abgeschlossen. Ich verstehe deutlich mehr, als ich sprechen kann, und möchte im nächsten Jahr die B1-Prüfung ablegen.\n\nDa ich tagsüber Bewerbungsgespräche habe, suche ich einen Kurs am Abend, möglichst ab 18 Uhr. Könnten Sie mir bitte mitteilen, wann der nächste Abendkurs beginnt und was er kostet? Gibt es eine Förderung durch das AMS?\n\nVielen Dank im Voraus.\n\nMit freundlichen Grüßen\nViktor Petrenko"
+  },
+  {
+    "id": "w-001-06", "station": 1, "variant": 6, "emailType": "Vorstellung", "minWords": 80,
+    "prompt": "Ihr Kind besucht eine neue Schule. Schreiben Sie eine E-Mail an die Klassenlehrerin: stellen Sie sich und Ihr Kind vor, erklären Sie die Situation, und bieten Sie Ihre Hilfe an.",
+    "modelAnswer": "Sehr geehrte Frau Wagner,\n\nmein Sohn Yusuf besucht seit dieser Woche die Klasse 3b, deshalb möchte ich mich kurz vorstellen.\n\nMein Name ist Leyla Demir. Wir sind im August von Salzburg nach Wien gezogen, weil mein Mann hier eine neue Stelle bekommen hat. Für Yusuf ist der Wechsel mitten im Schuljahr nicht leicht, da er seine Freunde sehr vermisst. Beim Lesen ist er gut, beim Rechnen braucht er noch etwas Zeit.\n\nIch arbeite Teilzeit als Apothekerin und bin dienstags und donnerstags zu Hause. An diesen Tagen könnte ich bei Ausflügen gerne mithelfen.\n\nFür ein persönliches Gespräch stehe ich jederzeit zur Verfügung.\n\nMit freundlichen Grüßen\nLeyla Demir"
+  },
+  {
+    "id": "w-001-07", "station": 1, "variant": 7, "emailType": "Bewerbung", "minWords": 80,
+    "prompt": "Sie haben eine Stellenanzeige gelesen. Schreiben Sie eine kurze Bewerbung: stellen Sie sich vor, nennen Sie Ihre Ausbildung und Erfahrung, und bitten Sie um ein Gespräch.",
+    "modelAnswer": "Sehr geehrte Frau Steiner,\n\nauf der Website des AMS habe ich Ihre Anzeige für eine Pflegeassistenz gelesen und bewerbe mich hiermit um diese Stelle.\n\nMein Name ist Ana Popescu, ich bin 34 Jahre alt und lebe seit fünf Jahren in Wien. Nach meiner Ankunft habe ich zunächst als Reinigungskraft gearbeitet und berufsbegleitend die Ausbildung zur Pflegeassistentin abgeschlossen. Seit zwei Jahren arbeite ich in einem Pflegeheim im 16. Bezirk.\n\nDie Arbeit mit älteren Menschen macht mir viel Freude, weil ich gerne Verantwortung übernehme. Da Ihr Haus näher an meiner Wohnung liegt, möchte ich mich gerne verändern.\n\nÜber eine Einladung zu einem Gespräch würde ich mich sehr freuen.\n\nMit freundlichen Grüßen\nAna Popescu"
+  },
+  {
+    "id": "w-001-08", "station": 1, "variant": 8, "emailType": "Entschuldigung", "minWords": 80,
+    "prompt": "Sie konnten beim ersten Treffen Ihrer Lerngruppe nicht dabei sein. Schreiben Sie eine E-Mail: entschuldigen Sie sich, stellen Sie sich kurz vor, und fragen Sie nach dem nächsten Termin.",
+    "modelAnswer": "Liebe Lerngruppe,\n\nleider konnte ich beim ersten Treffen am Donnerstag nicht dabei sein, und dafür möchte ich mich entschuldigen. Meine Tochter war krank und ich musste kurzfristig zu Hause bleiben.\n\nDamit Sie trotzdem wissen, wer ich bin: Mein Name ist Amina Sow, ich komme aus dem Senegal und lebe seit einem Jahr in Österreich. In meiner Heimat habe ich Betriebswirtschaft studiert. Zurzeit bereite ich mich auf die B1-Prüfung vor.\n\nBeim nächsten Mal bin ich auf jeden Fall dabei. Könnten Sie mir bitte schreiben, wann und wo wir uns treffen? Falls Sie schon Material besprochen haben, wäre ich für einen kurzen Hinweis dankbar.\n\nViele Grüße\nAmina Sow"
+  },
+  {
+    "id": "w-001-09", "station": 1, "variant": 9, "emailType": "Anfrage", "minWords": 80,
+    "prompt": "Sie suchen einen Kindergartenplatz. Schreiben Sie an den Kindergarten: stellen Sie sich und Ihr Kind vor, nennen Sie den gewünschten Zeitpunkt, und fragen Sie nach den Öffnungszeiten.",
+    "modelAnswer": "Sehr geehrte Damen und Herren,\n\nich wende mich an Sie, weil ich für meine Tochter einen Kindergartenplatz suche.\n\nMein Name ist Elena Varga. Wir sind vor zwei Wochen aus Bratislava nach Wien gezogen und wohnen jetzt in der Nähe Ihres Kindergartens. Meine Tochter Sofia ist drei Jahre alt. Sie ist ein fröhliches Kind, spielt gerne mit anderen und spricht zu Hause Slowakisch. Deutsch versteht sie schon ein wenig.\n\nDen Platz bräuchten wir möglichst ab Anfang November, da ich dann wieder zu arbeiten beginne.\n\nKönnten Sie mir bitte mitteilen, ob noch Plätze frei sind und wie Ihre Öffnungszeiten sind? Gerne komme ich auch persönlich vorbei.\n\nMit freundlichen Grüßen\nElena Varga"
+  }
+]
