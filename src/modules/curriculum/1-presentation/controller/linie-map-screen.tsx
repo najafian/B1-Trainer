@@ -8,34 +8,31 @@ import { ThemedView } from '@/components/themed-view';
 import { LinieB1 } from '@/constants/lines';
 import { Colors } from '@/constants/theme';
 
+import { ProgressEndpoint } from '@/modules/progress/1-presentation/endpoints/progress-endpoint';
+
 import { CurriculumEndpoint, type StationOnLine } from '../endpoints/curriculum-endpoint';
 
 const ROW_HEIGHT = 64;
 const RAIL_WIDTH = 48;
 const RAIL_X = RAIL_WIDTH / 2;
 
-type Props = {
-  /**
-   * The station the passenger is currently at. Hard-wired to 1 until the
-   * progress module exists; it will come from that module's endpoint.
-   */
-  currentStation?: number;
-};
-
-export function LinieMapScreen({ currentStation = 1 }: Props) {
+export function LinieMapScreen() {
   const scheme = useColorScheme();
   const colors = Colors[scheme === 'dark' ? 'dark' : 'light'];
   const [stations, setStations] = useState<StationOnLine[] | null>(null);
 
   useEffect(() => {
     let active = true;
-    CurriculumEndpoint.stationsOnLine(currentStation).then((result) => {
-      if (active) setStations(result);
-    });
+    // Progress is read through the module's endpoint, never its internals.
+    ProgressEndpoint.currentJourney()
+      .then((journey) => CurriculumEndpoint.stationsOnLine(journey.currentStation))
+      .then((result) => {
+        if (active) setStations(result);
+      });
     return () => {
       active = false;
     };
-  }, [currentStation]);
+  }, []);
 
   if (stations === null) {
     return (
