@@ -1,3 +1,4 @@
+import { useRouter } from 'expo-router';
 import { useEffect, useState } from 'react';
 import {
   ActivityIndicator,
@@ -14,8 +15,7 @@ import Svg, { Circle, Line } from 'react-native-svg';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { LinieB1 } from '@/constants/lines';
-import { BottomTabInset, MaxContentWidth, Spacing } from '@/constants/theme';
-import { Colors } from '@/constants/theme';
+import { BottomTabInset, Colors, MaxContentWidth, Spacing } from '@/constants/theme';
 
 import { ProgressEndpoint } from '@/modules/progress/1-presentation/endpoints/progress-endpoint';
 
@@ -28,6 +28,7 @@ const RAIL_X = RAIL_WIDTH / 2;
 export function LinieMapScreen() {
   const scheme = useColorScheme();
   const colors = Colors[scheme === 'dark' ? 'dark' : 'light'];
+  const router = useRouter();
   const [stations, setStations] = useState<StationOnLine[] | null>(null);
 
   useEffect(() => {
@@ -70,6 +71,7 @@ export function LinieMapScreen() {
             <StationRow
               key={station.number}
               station={station}
+              onPress={() => router.push(`/station/${station.number}` as never)}
               isFirst={index === 0}
               isLast={index === stations.length - 1}
               textColor={colors.text}
@@ -84,19 +86,21 @@ export function LinieMapScreen() {
 
 type RowProps = {
   station: StationOnLine;
+  onPress: () => void;
   isFirst: boolean;
   isLast: boolean;
   textColor: string;
   mutedColor: string;
 };
 
-function StationRow({ station, isFirst, isLast, textColor, mutedColor }: RowProps) {
+function StationRow({ station, isFirst, isLast, textColor, mutedColor, onPress }: RowProps) {
   const { number, titleDe, status, isReview, isExamDay } = station;
   const segmentColor = status === 'ahead' ? LinieB1.aheadColor : LinieB1.reachedColor;
   const radius = isExamDay ? 11 : isReview ? 9 : 6.5;
 
   return (
     <Pressable
+      onPress={onPress}
       style={styles.row}
       hitSlop={8}
       accessible

@@ -1,6 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { ActivityIndicator, Platform, StyleSheet, View, useColorScheme } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+
+import { useFocusEffect } from 'expo-router';
 
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
@@ -27,9 +29,10 @@ export function HomeScreen() {
   const colors = Colors[scheme === 'dark' ? 'dark' : 'light'];
   const [today, setToday] = useState<Today | null>(null);
 
-  useEffect(() => {
-    let active = true;
-    (async () => {
+  useFocusEffect(
+    useCallback(() => {
+      let active = true;
+      (async () => {
       const journey = await ProgressEndpoint.currentJourney();
       const [stations, progress] = await Promise.all([
         CurriculumEndpoint.stationsOnLine(journey.currentStation),
@@ -43,11 +46,12 @@ export function HomeScreen() {
         reachedCount: journey.reachedStations.length,
         total: stations.length,
       });
-    })();
-    return () => {
-      active = false;
-    };
-  }, []);
+      })();
+      return () => {
+        active = false;
+      };
+    }, [])
+  );
 
   if (today === null) {
     return (
