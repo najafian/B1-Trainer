@@ -11,11 +11,7 @@ import { ProgressEndpoint } from '@/modules/progress/1-presentation/endpoints/pr
 
 import { CurriculumEndpoint, type Station } from '../endpoints/curriculum-endpoint';
 
-/** Skills that already have a screen. The rest are honestly marked as pending. */
-const ROUTE_BY_SKILL: Partial<Record<SkillId, string>> = {
-  lesen: 'lesen',
-  schreiben: 'schreiben',
-};
+import { isSkillAvailable, skillHref } from './skill-routes';
 
 type Props = { station: number };
 
@@ -72,14 +68,13 @@ export function StationScreen({ station }: Props) {
             {SKILL_IDS.map((id) => {
               const line = SkillLines[id];
               const done = data.done.includes(id);
-              const route = ROUTE_BY_SKILL[id];
-              const available = Boolean(route);
+              const available = isSkillAvailable(id);
 
               return (
                 <Pressable
                   key={id}
                   disabled={!available}
-                  onPress={() => router.push(`/station/${station}/${route}` as never)}
+                  onPress={() => router.push(skillHref(station, id) as never)}
                   style={[styles.row, { borderColor: colors.backgroundSelected }, !available && styles.rowDisabled]}
                   accessible
                   accessibilityRole="button"

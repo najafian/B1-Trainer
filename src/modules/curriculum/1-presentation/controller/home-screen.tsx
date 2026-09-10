@@ -1,8 +1,8 @@
 import { useCallback, useState } from 'react';
-import { ActivityIndicator, Platform, StyleSheet, View, useColorScheme } from 'react-native';
+import { ActivityIndicator, Platform, Pressable, StyleSheet, View, useColorScheme } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { useFocusEffect } from 'expo-router';
+import { useFocusEffect, useRouter } from 'expo-router';
 
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
@@ -16,6 +16,7 @@ import {
 import { CurriculumEndpoint, type StationOnLine } from '../endpoints/curriculum-endpoint';
 
 import { SkillBadges } from './skill-badges';
+import { skillHref } from './skill-routes';
 
 type Today = {
   station: StationOnLine;
@@ -25,6 +26,7 @@ type Today = {
 };
 
 export function HomeScreen() {
+  const router = useRouter();
   const scheme = useColorScheme();
   const colors = Colors[scheme === 'dark' ? 'dark' : 'light'];
   const [today, setToday] = useState<Today | null>(null);
@@ -67,24 +69,35 @@ export function HomeScreen() {
     <ThemedView style={styles.container}>
       <SafeAreaView edges={['top']} style={styles.safeArea}>
         <View style={styles.content}>
-          <ThemedText type="small" style={{ color: colors.textSecondary }}>
-            Nächste Station
-          </ThemedText>
-          <ThemedText type="title">{station.titleDe}</ThemedText>
-          <ThemedText type="small" style={{ color: colors.textSecondary }}>
-            Station {station.number} von {total}
-            {station.isExamDay
-              ? ' · Prüfungstag'
-              : station.isReview
-                ? ' · Wiederholung'
-                : ''}
-          </ThemedText>
+          <Pressable
+            onPress={() => router.push(`/station/${station.number}` as never)}
+            style={({ pressed }) => [styles.stationHeader, pressed && styles.pressed]}
+            accessible
+            accessibilityRole="button"
+            accessibilityLabel={`Station ${station.number}, ${station.titleDe}. Station öffnen.`}>
+            <ThemedText type="small" style={{ color: colors.textSecondary }}>
+              Nächste Station
+            </ThemedText>
+            <ThemedText type="title">{station.titleDe}</ThemedText>
+            <ThemedText type="small" style={{ color: colors.textSecondary }}>
+              Station {station.number} von {total}
+              {station.isExamDay
+                ? ' · Prüfungstag'
+                : station.isReview
+                  ? ' · Wiederholung'
+                  : ''}
+            </ThemedText>
+          </Pressable>
 
           <View style={[styles.card, { borderColor: colors.backgroundSelected }]}>
             <ThemedText type="small" style={{ color: colors.textSecondary }}>
-              Diese Station ist erreicht, wenn alle sechs Linien erledigt sind.
+              Tippen Sie auf eine Linie, um zu beginnen. Die Station ist erreicht,
+              wenn alle sechs Linien erledigt sind.
             </ThemedText>
-            <SkillBadges completedSkills={completedSkills} />
+            <SkillBadges
+              completedSkills={completedSkills}
+              onSelect={(skill) => router.push(skillHref(station.number, skill) as never)}
+            />
           </View>
 
           <View style={[styles.ticket, { borderColor: LinieB1.color }]}>
@@ -114,6 +127,8 @@ const styles = StyleSheet.create({
     maxWidth: MaxContentWidth,
     alignSelf: 'center',
   },
+  stationHeader: { gap: 4 },
+  pressed: { opacity: 0.6 },
   card: { borderWidth: 1, borderRadius: 12, padding: 16, gap: 14, marginTop: Spacing.two },
   ticket: {
     borderWidth: 1,

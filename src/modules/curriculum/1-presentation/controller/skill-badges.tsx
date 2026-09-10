@@ -1,10 +1,14 @@
-import { StyleSheet, View } from 'react-native';
+import { Pressable, StyleSheet, View } from 'react-native';
 
 import { ThemedText } from '@/components/themed-text';
 import { SKILL_IDS, SkillLines, type SkillId } from '@/constants/lines';
 
+import { isSkillAvailable } from './skill-routes';
+
 type Props = {
   completedSkills: SkillId[];
+  /** When given, each badge with a screen becomes tappable. */
+  onSelect?: (skill: SkillId) => void;
 };
 
 /**
@@ -14,18 +18,32 @@ type Props = {
  * status is never carried by colour alone - the colours of U1/U4 and U3/U6 are
  * a common confusion pair for colour vision deficiency (WCAG 1.4.1).
  */
-export function SkillBadges({ completedSkills }: Props) {
+export function SkillBadges({ completedSkills, onSelect }: Props) {
   return (
     <View style={styles.row}>
       {SKILL_IDS.map((id) => {
         const line = SkillLines[id];
         const done = completedSkills.includes(id);
+        const available = isSkillAvailable(id);
+        const tappable = Boolean(onSelect) && available;
+
         return (
-          <View
+          <Pressable
             key={id}
-            style={styles.item}
+            disabled={!tappable}
+            onPress={tappable ? () => onSelect?.(id) : undefined}
+            hitSlop={6}
+            style={({ pressed }) => [
+              styles.item,
+              !available && onSelect ? styles.unavailable : null,
+              pressed ? styles.pressed : null,
+            ]}
             accessible
-            accessibilityLabel={`${line.labelDe}, Linie ${line.line}, ${done ? 'erledigt' : 'offen'}`}>
+            accessibilityRole={tappable ? 'button' : 'text'}
+            accessibilityState={{ disabled: !tappable }}
+            accessibilityLabel={`${line.labelDe}, Linie ${line.line}, ${
+              done ? 'erledigt' : 'offen'
+            }${onSelect && !available ? ', noch nicht verfügbar' : ''}`}>
             <View
               style={[
                 styles.badge,
@@ -42,7 +60,7 @@ export function SkillBadges({ completedSkills }: Props) {
             <ThemedText type="small" style={styles.label} numberOfLines={1}>
               {line.labelDe}
             </ThemedText>
-          </View>
+          </Pressable>
         );
       })}
     </View>
@@ -52,6 +70,8 @@ export function SkillBadges({ completedSkills }: Props) {
 const styles = StyleSheet.create({
   row: { flexDirection: 'row', flexWrap: 'wrap', gap: 12 },
   item: { alignItems: 'center', gap: 4, minWidth: 56 },
+  unavailable: { opacity: 0.4 },
+  pressed: { opacity: 0.6 },
   badge: {
     width: 44,
     height: 44,
