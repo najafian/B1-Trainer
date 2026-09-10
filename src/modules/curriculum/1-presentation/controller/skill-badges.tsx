@@ -1,7 +1,7 @@
-import { Pressable, StyleSheet, View } from 'react-native';
+import { Pressable, StyleSheet, View, useColorScheme } from 'react-native';
 
 import { ThemedText } from '@/components/themed-text';
-import { SKILL_IDS, SkillLines, type SkillId } from '@/constants/lines';
+import { SKILL_IDS, SkillLines, lineTextColor, type SkillId } from '@/constants/lines';
 
 import { isSkillAvailable } from './skill-routes';
 
@@ -19,11 +19,15 @@ type Props = {
  * a common confusion pair for colour vision deficiency (WCAG 1.4.1).
  */
 export function SkillBadges({ completedSkills, onSelect }: Props) {
+  const dark = useColorScheme() === 'dark';
+
   return (
     <View style={styles.row}>
       {SKILL_IDS.map((id) => {
         const line = SkillLines[id];
         const done = completedSkills.includes(id);
+        // Outlined, the line colour IS the text, so it needs the readable variant.
+        const outlineColor = lineTextColor(line, dark);
         const available = isSkillAvailable(id);
         const tappable = Boolean(onSelect) && available;
 
@@ -49,11 +53,11 @@ export function SkillBadges({ completedSkills, onSelect }: Props) {
                 styles.badge,
                 done
                   ? { backgroundColor: line.color, borderColor: line.color }
-                  : { backgroundColor: 'transparent', borderColor: line.color },
+                  : { backgroundColor: 'transparent', borderColor: outlineColor },
               ]}>
               <ThemedText
                 type="smallBold"
-                style={[styles.glyph, { color: done ? line.onColor : line.color }]}>
+                style={[styles.glyph, { color: done ? line.onColor : outlineColor }]}>
                 {line.line}
               </ThemedText>
             </View>

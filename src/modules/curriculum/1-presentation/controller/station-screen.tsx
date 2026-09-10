@@ -5,8 +5,8 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
-import { SKILL_IDS, SkillLines, type SkillId } from '@/constants/lines';
-import { Colors, MaxContentWidth, Spacing } from '@/constants/theme';
+import { SKILL_IDS, SkillLines, lineTextColor, type SkillId } from '@/constants/lines';
+import { Colors, MaxContentWidth, Radius, Spacing } from '@/constants/theme';
 import { ProgressEndpoint } from '@/modules/progress/1-presentation/endpoints/progress-endpoint';
 
 import { CurriculumEndpoint, type Station } from '../endpoints/curriculum-endpoint';
@@ -68,6 +68,7 @@ export function StationScreen({ station }: Props) {
             {SKILL_IDS.map((id) => {
               const line = SkillLines[id];
               const done = data.done.includes(id);
+              const outlineColor = lineTextColor(line, scheme === 'dark');
               const available = isSkillAvailable(id);
 
               return (
@@ -75,7 +76,7 @@ export function StationScreen({ station }: Props) {
                   key={id}
                   disabled={!available}
                   onPress={() => router.push(skillHref(station, id) as never)}
-                  style={[styles.row, { borderColor: colors.backgroundSelected }, !available && styles.rowDisabled]}
+                  style={[styles.row, { borderColor: colors.border }, !available && styles.rowDisabled]}
                   accessible
                   accessibilityRole="button"
                   accessibilityState={{ disabled: !available }}
@@ -85,9 +86,9 @@ export function StationScreen({ station }: Props) {
                       styles.badge,
                       done
                         ? { backgroundColor: line.color, borderColor: line.color }
-                        : { borderColor: line.color },
+                        : { borderColor: outlineColor },
                     ]}>
-                    <ThemedText type="smallBold" style={{ color: done ? line.onColor : line.color }}>
+                    <ThemedText type="smallBold" style={{ color: done ? line.onColor : outlineColor }}>
                       {line.line}
                     </ThemedText>
                   </View>
@@ -126,7 +127,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 14,
     borderWidth: 1,
-    borderRadius: 12,
+    borderRadius: Radius.medium,
     padding: 14,
     minHeight: 64,
   },
@@ -136,7 +137,7 @@ const styles = StyleSheet.create({
   badge: {
     width: 44,
     height: 44,
-    borderRadius: 10,
+    borderRadius: Radius.small,
     borderWidth: 2,
     alignItems: 'center',
     justifyContent: 'center',

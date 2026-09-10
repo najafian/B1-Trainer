@@ -9,18 +9,25 @@ import { Platform } from 'react-native';
 
 export const Colors = {
   light: {
-    text: '#000000',
-    background: '#ffffff',
-    backgroundElement: '#F0F0F3',
-    backgroundSelected: '#E0E1E6',
-    textSecondary: '#60646C',
+    text: '#12161C',
+    background: '#FFFFFF',
+    backgroundElement: '#F4F5F7',
+    backgroundSelected: '#E4E6EB',
+    textSecondary: '#5A616B',
+    border: '#DDE0E5',
+    /** Writing tasks sit on paper, per the design language. */
+    paper: '#FBF7EF',
+    paperText: '#1A1712',
   },
   dark: {
-    text: '#ffffff',
-    background: '#000000',
-    backgroundElement: '#212225',
-    backgroundSelected: '#2E3135',
-    textSecondary: '#B0B4BA',
+    text: '#F2F4F7',
+    background: '#0D0F12',
+    backgroundElement: '#1A1D22',
+    backgroundSelected: '#272B32',
+    textSecondary: '#A8AEB8',
+    border: '#2C3037',
+    paper: '#17150F',
+    paperText: '#F0EADC',
   },
 } as const;
 
@@ -60,6 +67,23 @@ export const Spacing = {
   five: 32,
   six: 64,
 } as const;
+
+/**
+ * Type system. Custom font files do not respond to fontWeight, so each weight
+ * is its own family - picking the wrong one silently falls back to the system
+ * face. Display is the Jugendstil-flavoured serif for station names, body is
+ * the grotesk for everything else.
+ */
+export const AppFonts = {
+  display: 'LibreBodoni_700Bold',
+  displayMedium: 'LibreBodoni_500Medium',
+  body: 'PublicSans_400Regular',
+  bodyMedium: 'PublicSans_500Medium',
+  bodySemiBold: 'PublicSans_600SemiBold',
+  bodyBold: 'PublicSans_700Bold',
+} as const;
+
+export const Radius = { small: 8, medium: 12, large: 16, pill: 999 } as const;
 
 export const BottomTabInset = Platform.select({ ios: 50, android: 80 }) ?? 0;
 export const MaxContentWidth = 800;

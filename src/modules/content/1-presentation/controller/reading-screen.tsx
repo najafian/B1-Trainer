@@ -6,7 +6,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { SkillLines } from '@/constants/lines';
-import { Colors, MaxContentWidth, Spacing } from '@/constants/theme';
+import { Colors, MaxContentWidth, Radius, Spacing } from '@/constants/theme';
 import { ProgressEndpoint } from '@/modules/progress/1-presentation/endpoints/progress-endpoint';
 
 import { ContentEndpoint, type ReadingTask } from '../endpoints/content-endpoint';
@@ -72,7 +72,7 @@ export function ReadingScreen({ station }: { station: number }) {
           </View>
 
           <ThemedText type="subtitle">{task.title}</ThemedText>
-          <View style={[styles.textCard, { borderColor: colors.backgroundSelected }]}>
+          <View style={[styles.textCard, { borderColor: colors.border }]}>
             <ThemedText style={styles.readingText}>{task.text}</ThemedText>
           </View>
 
@@ -161,17 +161,17 @@ const styles = StyleSheet.create({
   },
   headerRow: { flexDirection: 'row', alignItems: 'center', gap: 10 },
   badge: { width: 36, height: 36, borderRadius: 8, alignItems: 'center', justifyContent: 'center' },
-  textCard: { borderWidth: 1, borderRadius: 12, padding: 16 },
+  textCard: { borderWidth: 1, borderRadius: Radius.medium, padding: 16 },
   readingText: { fontSize: 16, lineHeight: 26 },
   question: { gap: 8, marginTop: Spacing.two },
   questionPrompt: { fontSize: 16, fontWeight: '600' },
-  option: { borderWidth: 1.5, borderRadius: 10, padding: 12, minHeight: 44, justifyContent: 'center' },
+  option: { borderWidth: 1.5, borderRadius: Radius.small, padding: 12, minHeight: 44, justifyContent: 'center' },
   optionCorrect: { borderColor: '#009A49', backgroundColor: 'rgba(0,154,73,0.10)' },
   optionWrong: { borderColor: '#C62828', backgroundColor: 'rgba(198,40,40,0.10)' },
   explanation: { marginTop: 2, fontStyle: 'italic' },
   button: {
     marginTop: Spacing.three,
-    borderRadius: 12,
+    borderRadius: Radius.medium,
     paddingVertical: 14,
     alignItems: 'center',
     justifyContent: 'center',

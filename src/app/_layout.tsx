@@ -1,5 +1,20 @@
+import {
+  LibreBodoni_500Medium,
+  LibreBodoni_700Bold,
+} from '@expo-google-fonts/libre-bodoni';
+import {
+  PublicSans_400Regular,
+  PublicSans_500Medium,
+  PublicSans_600SemiBold,
+  PublicSans_700Bold,
+} from '@expo-google-fonts/public-sans';
+import { useFonts } from 'expo-font';
 import { DarkTheme, DefaultTheme, Stack, ThemeProvider } from 'expo-router';
+import * as SplashScreen from 'expo-splash-screen';
+import { useEffect } from 'react';
 import { useColorScheme } from 'react-native';
+
+SplashScreen.preventAutoHideAsync();
 
 /**
  * Root navigator. The tab bar lives in the (tabs) group, so station and skill
@@ -8,6 +23,22 @@ import { useColorScheme } from 'react-native';
  */
 export default function RootLayout() {
   const colorScheme = useColorScheme();
+  const [fontsLoaded, fontError] = useFonts({
+    LibreBodoni_500Medium,
+    LibreBodoni_700Bold,
+    PublicSans_400Regular,
+    PublicSans_500Medium,
+    PublicSans_600SemiBold,
+    PublicSans_700Bold,
+  });
+
+  useEffect(() => {
+    // Render once the faces are ready, but never hang on a font failure.
+    if (fontsLoaded || fontError) SplashScreen.hideAsync();
+  }, [fontsLoaded, fontError]);
+
+  if (!fontsLoaded && !fontError) return null;
+
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <Stack>

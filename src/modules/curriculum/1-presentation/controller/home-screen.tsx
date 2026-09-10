@@ -7,7 +7,7 @@ import { useFocusEffect, useRouter } from 'expo-router';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { LinieB1 } from '@/constants/lines';
-import { BottomTabInset, Colors, MaxContentWidth, Spacing } from '@/constants/theme';
+import { BottomTabInset, Colors, MaxContentWidth, Radius, Spacing } from '@/constants/theme';
 import {
   ProgressEndpoint,
   type SkillId,
@@ -89,7 +89,7 @@ export function HomeScreen() {
             </ThemedText>
           </Pressable>
 
-          <View style={[styles.card, { borderColor: colors.backgroundSelected }]}>
+          <View style={[styles.card, { borderColor: colors.border }]}>
             <ThemedText type="small" style={{ color: colors.textSecondary }}>
               Tippen Sie auf eine Linie, um zu beginnen. Die Station ist erreicht,
               wenn alle sechs Linien erledigt sind.
@@ -129,11 +129,11 @@ const styles = StyleSheet.create({
   },
   stationHeader: { gap: 4 },
   pressed: { opacity: 0.6 },
-  card: { borderWidth: 1, borderRadius: 12, padding: 16, gap: 14, marginTop: Spacing.two },
+  card: { borderWidth: 1, borderRadius: Radius.medium, padding: 16, gap: 14, marginTop: Spacing.two },
   ticket: {
     borderWidth: 1,
     borderStyle: 'dashed',
-    borderRadius: 12,
+    borderRadius: Radius.medium,
     padding: 16,
     gap: 4,
     marginTop: Spacing.one,

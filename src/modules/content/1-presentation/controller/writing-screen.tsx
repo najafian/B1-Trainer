@@ -14,7 +14,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { SkillLines } from '@/constants/lines';
-import { Colors, MaxContentWidth, Spacing } from '@/constants/theme';
+import { Colors, MaxContentWidth, Radius, Spacing } from '@/constants/theme';
 import { ProgressEndpoint } from '@/modules/progress/1-presentation/endpoints/progress-endpoint';
 
 import { ContentEndpoint, type WritingTask } from '../endpoints/content-endpoint';
@@ -81,7 +81,7 @@ export function WritingScreen({ station }: { station: number }) {
             </ThemedText>
           </View>
 
-          <View style={[styles.card, { borderColor: colors.backgroundSelected }]}>
+          <View style={[styles.card, { borderColor: colors.border }]}>
             <ThemedText style={styles.prompt}>{task.prompt}</ThemedText>
           </View>
 
@@ -96,7 +96,11 @@ export function WritingScreen({ station }: { station: number }) {
             accessibilityLabel="Ihre E-Mail"
             style={[
               styles.editor,
-              { borderColor: colors.backgroundSelected, color: colors.text, backgroundColor: colors.backgroundElement },
+              {
+                borderColor: colors.border,
+                color: colors.paperText,
+                backgroundColor: colors.paper,
+              },
             ]}
           />
 
@@ -125,8 +129,15 @@ export function WritingScreen({ station }: { station: number }) {
               <ThemedText type="small" style={{ color: colors.textSecondary }}>
                 Vergleichen Sie Aufbau, Anrede und Schlussformel mit Ihrem Text.
               </ThemedText>
-              <View style={[styles.card, styles.model, { borderColor: LINE.color }]}>
-                <ThemedText style={styles.modelText}>{task.modelAnswer}</ThemedText>
+              <View
+                style={[
+                  styles.card,
+                  styles.model,
+                  { borderColor: LINE.color, backgroundColor: colors.paper },
+                ]}>
+                <ThemedText style={[styles.modelText, { color: colors.paperText }]}>
+                  {task.modelAnswer}
+                </ThemedText>
               </View>
               <Pressable
                 onPress={markDone}
@@ -160,11 +171,11 @@ const styles = StyleSheet.create({
   },
   headerRow: { flexDirection: 'row', alignItems: 'center', gap: 10 },
   badge: { width: 36, height: 36, borderRadius: 8, alignItems: 'center', justifyContent: 'center' },
-  card: { borderWidth: 1, borderRadius: 12, padding: 16 },
+  card: { borderWidth: 1, borderRadius: Radius.medium, padding: 16 },
   prompt: { fontSize: 16, lineHeight: 24 },
   editor: {
     borderWidth: 1,
-    borderRadius: 12,
+    borderRadius: Radius.medium,
     padding: 14,
     minHeight: 220,
     fontSize: 16,
@@ -174,7 +185,7 @@ const styles = StyleSheet.create({
   modelText: { fontSize: 15, lineHeight: 24 },
   button: {
     marginTop: Spacing.two,
-    borderRadius: 12,
+    borderRadius: Radius.medium,
     paddingVertical: 14,
     alignItems: 'center',
     justifyContent: 'center',
