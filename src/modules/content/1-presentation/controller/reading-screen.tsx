@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { ActivityIndicator, Pressable, ScrollView, StyleSheet, View, useColorScheme } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+import { Stamp } from '@/components/stamp';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { SkillLines } from '@/constants/lines';
@@ -126,9 +127,12 @@ export function ReadingScreen({ station }: { station: number }) {
             </Pressable>
           ) : (
             <View style={styles.resultBlock}>
-              <ThemedText type="subtitle">
-                {correctCount} von {task.questions.length} richtig
-              </ThemedText>
+              {/* Multiple choice is objectively scorable offline, so the stamp
+                  here is earned. 60% is the ÖIF pass threshold. */}
+              <Stamp
+                passed={correctCount / task.questions.length >= 0.6}
+                note={`${correctCount} VON ${task.questions.length} RICHTIG`}
+              />
               <Pressable
                 onPress={markDone}
                 style={[styles.button, { backgroundColor: LINE.color }]}

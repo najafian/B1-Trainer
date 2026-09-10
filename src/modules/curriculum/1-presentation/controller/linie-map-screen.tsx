@@ -10,12 +10,12 @@ import {
   useColorScheme,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import Svg, { Circle, Line } from 'react-native-svg';
+import Svg, { Circle, Line, Rect } from 'react-native-svg';
 
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { LinieB1 } from '@/constants/lines';
-import { BottomTabInset, Colors, MaxContentWidth, Spacing } from '@/constants/theme';
+import { AppFonts, BottomTabInset, Colors, MaxContentWidth, Spacing } from '@/constants/theme';
 
 import { ProgressEndpoint } from '@/modules/progress/1-presentation/endpoints/progress-endpoint';
 
@@ -58,9 +58,10 @@ export function LinieMapScreen() {
     <ThemedView style={styles.container}>
       <SafeAreaView edges={['top']} style={styles.safeArea}>
         <View style={styles.header}>
+          <View style={[styles.lineBar, { backgroundColor: LinieB1.color }]} />
           <ThemedText type="title">{LinieB1.name}</ThemedText>
-          <ThemedText type="small" style={{ color: colors.textSecondary }}>
-            {reached} von {stations.length} Stationen erreicht
+          <ThemedText type="small" style={[styles.meta, { color: colors.textSecondary }]}>
+            {reached} VON {stations.length} STATIONEN ERREICHT
           </ThemedText>
         </View>
 
@@ -96,7 +97,11 @@ type RowProps = {
 function StationRow({ station, isFirst, isLast, textColor, mutedColor, onPress }: RowProps) {
   const { number, titleDe, status, isReview, isExamDay } = station;
   const segmentColor = status === 'ahead' ? LinieB1.aheadColor : LinieB1.reachedColor;
-  const radius = isExamDay ? 11 : isReview ? 9 : 6.5;
+  const markColor = status === 'ahead' ? LinieB1.aheadColor : LinieB1.color;
+  const isTerminus = isFirst || isLast;
+  // Transit-map conventions: interchanges are big ringed circles, ordinary
+  // stops are small ticks, and a terminus gets a bar across the line.
+  const radius = isExamDay ? 11 : isReview ? 9.5 : 5.5;
 
   return (
     <Pressable
@@ -128,26 +133,47 @@ function StationRow({ station, isFirst, isLast, textColor, mutedColor, onPress }
           />
         )}
         {status === 'current' && (
-          <Circle cx={RAIL_X} cy={ROW_HEIGHT / 2} r={radius + 6} fill={LinieB1.color} opacity={0.22} />
+          <Circle cx={RAIL_X} cy={ROW_HEIGHT / 2} r={radius + 7} fill={LinieB1.color} opacity={0.2} />
+        )}
+        {isTerminus && (
+          <Rect
+            x={RAIL_X - 13}
+            y={ROW_HEIGHT / 2 - 2.5}
+            width={26}
+            height={5}
+            rx={2.5}
+            fill={markColor}
+          />
         )}
         <Circle
           cx={RAIL_X}
           cy={ROW_HEIGHT / 2}
           r={radius}
-          fill={status === 'ahead' ? '#FFFFFF' : LinieB1.color}
-          stroke={status === 'ahead' ? LinieB1.aheadColor : LinieB1.color}
-          strokeWidth={3}
+          fill={status === 'ahead' || isReview || isExamDay ? '#FFFFFF' : markColor}
+          stroke={markColor}
+          strokeWidth={isReview || isExamDay ? 4 : 3}
         />
-        {isExamDay && <Circle cx={RAIL_X} cy={ROW_HEIGHT / 2} r={4} fill="#FFFFFF" />}
+        {isExamDay && <Circle cx={RAIL_X} cy={ROW_HEIGHT / 2} r={3.5} fill={markColor} />}
       </Svg>
 
       <View style={styles.rowText}>
-        <ThemedText type="small" style={{ color: mutedColor }}>
-          Station {number}
-          {isExamDay ? ' · Prüfungstag' : isReview ? ' · Wiederholung' : ''}
+        <ThemedText type="small" style={[styles.meta, { color: mutedColor }]}>
+          {isFirst
+            ? 'ENDSTATION · START'
+            : isLast
+              ? 'ENDSTATION · PRÜFUNG'
+              : isExamDay
+                ? `STATION ${number} · PRÜFUNGSTAG`
+                : isReview
+                  ? `STATION ${number} · UMSTEIGEN`
+                  : `STATION ${number}`}
         </ThemedText>
         <ThemedText
-          style={[styles.title, { color: status === 'ahead' ? mutedColor : textColor }]}
+          style={[
+            styles.title,
+            isTerminus || isExamDay ? styles.titleStrong : null,
+            { color: status === 'ahead' ? mutedColor : textColor },
+          ]}
           numberOfLines={2}>
           {titleDe}
         </ThemedText>
@@ -181,8 +207,11 @@ const styles = StyleSheet.create({
     maxWidth: MaxContentWidth,
     alignSelf: 'center',
   },
+  lineBar: { height: 6, borderRadius: 3, width: 64, marginBottom: Spacing.two },
   list: { paddingBottom: BottomTabInset + 32, width: '100%', maxWidth: MaxContentWidth, alignSelf: 'center' },
   row: { flexDirection: 'row', alignItems: 'center', minHeight: ROW_HEIGHT, paddingRight: 20 },
   rowText: { flex: 1, gap: 2 },
-  title: { fontSize: 17, fontWeight: '600' },
+  meta: { fontSize: 10.5, letterSpacing: 1.2 },
+  title: { fontFamily: AppFonts.bodySemiBold, fontSize: 17, lineHeight: 23 },
+  titleStrong: { fontFamily: AppFonts.display, fontSize: 20, lineHeight: 26 },
 });

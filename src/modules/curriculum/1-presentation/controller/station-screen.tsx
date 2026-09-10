@@ -3,6 +3,7 @@ import { useCallback, useState } from 'react';
 import { ActivityIndicator, Pressable, ScrollView, StyleSheet, View, useColorScheme } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+import { StationSign } from '@/components/station-sign';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { SKILL_IDS, SkillLines, lineTextColor, type SkillId } from '@/constants/lines';
@@ -53,11 +54,13 @@ export function StationScreen({ station }: Props) {
     <ThemedView style={styles.container}>
       <SafeAreaView edges={['top']} style={styles.safeArea}>
         <ScrollView contentContainerStyle={styles.content}>
-          <ThemedText type="small" style={{ color: colors.textSecondary }}>
-            Station {data.station.number} von 45
-            {data.station.isExamDay ? ' · Prüfungstag' : data.station.isReview ? ' · Wiederholung' : ''}
-          </ThemedText>
-          <ThemedText type="title">{data.station.titleDe}</ThemedText>
+          <StationSign
+            station={data.station.number}
+            title={data.station.titleDe}
+            total={45}
+            isReview={data.station.isReview}
+            isExamDay={data.station.isExamDay}
+          />
           <ThemedText type="small" style={{ color: colors.textSecondary }}>
             {reached
               ? 'Alle sechs Linien erledigt. Station erreicht.'

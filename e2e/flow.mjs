@@ -47,7 +47,13 @@ try {
 
   await submit.click();
   await page.waitForTimeout(1200);
-  check(await page.getByText('3 von 3 richtig').isVisible(), 'answers are scored correctly');
+  // Assert the stamp itself, not loose page text: getByText is case-insensitive,
+  // so a plain string here passed even after the result became a stamp.
+  const verdict = await page.getByLabel(/^Bewertung:/).getAttribute('aria-label');
+  check(
+    verdict === 'Bewertung: BESTANDEN. 3 VON 3 RICHTIG',
+    `stamped with the earned verdict (“${verdict}”)`
+  );
 
   await page.getByLabel('Lesen als erledigt markieren').click();
   await page.waitForTimeout(SETTLE);

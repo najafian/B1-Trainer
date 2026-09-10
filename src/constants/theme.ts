@@ -16,7 +16,7 @@ export const Colors = {
     textSecondary: '#5A616B',
     border: '#DDE0E5',
     /** Writing tasks sit on paper, per the design language. */
-    paper: '#FBF7EF',
+    paper: '#F7F0E1',
     paperText: '#1A1712',
   },
   dark: {
@@ -26,7 +26,7 @@ export const Colors = {
     backgroundSelected: '#272B32',
     textSecondary: '#A8AEB8',
     border: '#2C3037',
-    paper: '#17150F',
+    paper: '#1B1810',
     paperText: '#F0EADC',
   },
 } as const;
