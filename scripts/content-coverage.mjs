@@ -38,6 +38,24 @@ for (const kind of KINDS) {
 const grandTotal = required * KINDS.length;
 console.log(`\n  TOTAL    ${total} / ${grandTotal} items - ${grandTotal - total} still to author.`);
 
+// Reading passages are specified at ~250 words; anything much shorter is not a
+// B1 exam text. Report it rather than letting the corpus drift short.
+const MIN_WORDS = 230;
+const MAX_WORDS = 300;
+const short = [];
+for (const item of seed.reading ?? []) {
+  const words = item.text.trim().split(/\s+/).filter(Boolean).length;
+  if (words < MIN_WORDS || words > MAX_WORDS) short.push([item.id, words]);
+}
+console.log(`\n  Lesen length (target ${MIN_WORDS}-${MAX_WORDS} words)`);
+if (short.length === 0) {
+  console.log('           all passages in range');
+} else {
+  for (const [id, words] of short) {
+    console.log(`           ${id.padEnd(10)} ${String(words).padStart(3)} words  ${words < MIN_WORDS ? 'TOO SHORT' : 'TOO LONG'}`);
+  }
+}
+
 const missingTitles = stations.filter((s) => !s.titleConfirmed).length;
 if (missingTitles > 0) {
   console.log(`  NOTE     ${missingTitles} station titles are still placeholders.`);
