@@ -63,6 +63,19 @@ try {
   const label = await page.getByLabel(/Lesen, Linie U3/).getAttribute('aria-label');
   check(/erledigt/.test(label ?? ''), `progress survives the round trip (“${label}”)`);
 
+  // --- Sprechen: the picture description is time-gated, not answer-gated ---
+  await page.goto(`${BASE}/station/1/sprechen`, { waitUntil: 'networkidle' });
+  await page.waitForTimeout(SETTLE);
+
+  const reveal = page.getByLabel('Musterbeschreibung aufdecken');
+  check(await reveal.isDisabled(), 'model description is withheld before the minute is up');
+
+  await page.getByLabel('Zeit starten').click();
+  await page.waitForTimeout(3200);
+  const clock = await page.getByText(/\d\d:\d\d \/ 01:00/).textContent();
+  check(/00:0[23]/.test(clock ?? ''), `timer runs while speaking (“${clock?.trim()}”)`);
+  check(await reveal.isDisabled(), 'still withheld part-way through');
+
   check(errors.length === 0, `no page errors (${errors.length})`);
   if (errors.length) console.log(errors.slice(0, 3).join('\n'));
 } finally {

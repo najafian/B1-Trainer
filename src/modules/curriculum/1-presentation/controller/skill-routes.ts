@@ -5,6 +5,7 @@ import type { SkillId } from '@/constants/lines';
  * both agree on what is tappable; add a route here when a screen lands.
  */
 export const ROUTE_BY_SKILL: Partial<Record<SkillId, string>> = {
+  sprechen: 'sprechen',
   lesen: 'lesen',
   schreiben: 'schreiben',
 };

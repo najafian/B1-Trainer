@@ -44,6 +44,7 @@ export default function RootLayout() {
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="station/[n]/index" options={{ title: 'Station' }} />
+        <Stack.Screen name="station/[n]/sprechen" options={{ title: 'Sprechen' }} />
         <Stack.Screen name="station/[n]/lesen" options={{ title: 'Lesen' }} />
         <Stack.Screen name="station/[n]/schreiben" options={{ title: 'Schreiben' }} />
       </Stack>
