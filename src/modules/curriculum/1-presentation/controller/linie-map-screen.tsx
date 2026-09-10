@@ -1,11 +1,20 @@
 import { useEffect, useState } from 'react';
-import { ActivityIndicator, Pressable, ScrollView, StyleSheet, View, useColorScheme } from 'react-native';
+import {
+  ActivityIndicator,
+  Platform,
+  Pressable,
+  ScrollView,
+  StyleSheet,
+  View,
+  useColorScheme,
+} from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Svg, { Circle, Line } from 'react-native-svg';
 
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { LinieB1 } from '@/constants/lines';
+import { BottomTabInset, MaxContentWidth, Spacing } from '@/constants/theme';
 import { Colors } from '@/constants/theme';
 
 import { ProgressEndpoint } from '@/modules/progress/1-presentation/endpoints/progress-endpoint';
@@ -90,9 +99,10 @@ function StationRow({ station, isFirst, isLast, textColor, mutedColor }: RowProp
     <Pressable
       style={styles.row}
       hitSlop={8}
+      accessible
       accessibilityRole="button"
       accessibilityLabel={`Station ${number}, ${titleDe}. ${statusLabel(status)}${markerLabel(station)}`}>
-      <Svg width={RAIL_WIDTH} height={ROW_HEIGHT} accessibilityElementsHidden importantForAccessibility="no">
+      <Svg width={RAIL_WIDTH} height={ROW_HEIGHT}>
         {!isFirst && (
           <Line
             x1={RAIL_X}
@@ -157,8 +167,17 @@ function markerLabel({ isExamDay, isReview }: StationOnLine): string {
 const styles = StyleSheet.create({
   container: { flex: 1, justifyContent: 'center' },
   safeArea: { flex: 1 },
-  header: { paddingHorizontal: 20, paddingTop: 8, paddingBottom: 16, gap: 4 },
-  list: { paddingBottom: 96 },
+  header: {
+    paddingHorizontal: 20,
+    // The web tab bar floats above the top of the page; native tabs sit at the bottom.
+    paddingTop: Platform.OS === 'web' ? 72 : Spacing.two,
+    paddingBottom: 16,
+    gap: 4,
+    width: '100%',
+    maxWidth: MaxContentWidth,
+    alignSelf: 'center',
+  },
+  list: { paddingBottom: BottomTabInset + 32, width: '100%', maxWidth: MaxContentWidth, alignSelf: 'center' },
   row: { flexDirection: 'row', alignItems: 'center', minHeight: ROW_HEIGHT, paddingRight: 20 },
   rowText: { flex: 1, gap: 2 },
   title: { fontSize: 17, fontWeight: '600' },
