@@ -1,0 +1,39 @@
+/**
+ * Reports how much of the offline corpus exists against the target of
+ * 10 variants per station per kind.
+ *
+ * Run with: npm run check:content
+ */
+import { readFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+import { dirname, join } from 'node:path';
+
+const here = dirname(fileURLToPath(import.meta.url));
+const read = (...p) => JSON.parse(readFileSync(join(here, '..', ...p), 'utf8'));
+
+const seed = read('src', 'modules', 'content', '3-data', 'repository', 'seed', 'content-seed.json');
+const { stations } = read('src', 'modules', 'curriculum', '3-data', 'repository', 'curriculum.json');
+
+const VARIANTS = 10;
+const KINDS = ['reading', 'writing', 'picture'];
+const required = stations.length * VARIANTS;
+
+console.log(`Offline content coverage - ${stations.length} stations x ${VARIANTS} variants\n`);
+
+let total = 0;
+for (const kind of KINDS) {
+  const items = seed[kind] ?? [];
+  const covered = new Set(items.map((i) => `${i.station}:${i.variant}`)).size;
+  total += covered;
+  const pct = ((covered / required) * 100).toFixed(1);
+  const bar = '#'.repeat(Math.round((covered / required) * 30)).padEnd(30, '.');
+  console.log(`  ${kind.padEnd(8)} ${bar} ${String(covered).padStart(4)} / ${required}  (${pct}%)`);
+}
+
+const grandTotal = required * KINDS.length;
+console.log(`\n  TOTAL    ${total} / ${grandTotal} items - ${grandTotal - total} still to author.`);
+
+const missingTitles = stations.filter((s) => !s.titleConfirmed).length;
+if (missingTitles > 0) {
+  console.log(`  NOTE     ${missingTitles} station titles are still placeholders.`);
+}

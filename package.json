@@ -47,7 +47,8 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "lint": "expo lint",
-    "check:contrast": "node scripts/check-line-contrast.mjs"
+    "check:contrast": "node scripts/check-line-contrast.mjs",
+    "check:content": "node scripts/content-coverage.mjs"
   },
   "private": true
 }
